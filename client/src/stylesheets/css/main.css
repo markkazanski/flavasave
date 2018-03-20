@@ -418,7 +418,7 @@ li {
   text-transform: uppercase; }
 
 .userpage-container {
-  width: 60%; }
+  width: 65%; }
 
 .search-title {
   font-family: LeagueGothic, sans-serif;
@@ -447,6 +447,18 @@ li {
 
 .search-btn:hover {
   background-color: #1E401D; }
+
+.just-added-text {
+  font-family: PeleguerItalic, serif;
+  font-size: 3rem;
+  margin-top: -2rem;
+  margin-bottom: 1.5rem; }
+
+.just-added-link {
+  color: #F99E1C; }
+
+.just-added-link:hover {
+  color: #90bb5e; }
 
 .imageClass {
   height: 1vw;
