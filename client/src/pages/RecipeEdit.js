@@ -419,7 +419,7 @@ class RecipeEdit extends Component {
               <h3 className="noshow" />
             )}
 
-          <h3 className="ERTitle">ADD NEW TAG</h3>
+          <h3 className="ERTitle ERAdd">ADD NEW TAG</h3>
           <div className="row">
             <div className="recipe-page-col col-sm-11">
               <Input
