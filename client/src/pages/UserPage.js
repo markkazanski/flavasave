@@ -164,8 +164,8 @@ class UserPage extends Component {
               />
             </div>
           </form>
-          {this.state.just_added_id ? (<p>Just Added: 
-              <Link className="table-item" to={"/recipe/" + this.state.just_added_id}>
+          {this.state.just_added_id ? (<p className="just-added-text">Just Added: {" "} 
+              <Link className="just-added-link" to={"/recipe/" + this.state.just_added_id}>
                 {this.state.just_added_name}
               </Link>
             </p>) : (

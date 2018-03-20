@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+textarea {
+    max-width:100%;
+}
+
 @import './resources/_fontsandcolors';
 @import './resources/_animations';
 @import './pages/_home';

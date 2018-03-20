@@ -7,6 +7,9 @@
   border: none;
   padding: 0; }
 
+textarea {
+  max-width: 100%; }
+
 /* FONTS */
 @font-face {
   font-family: PathwaysRough;
@@ -418,7 +421,7 @@ li {
   text-transform: uppercase; }
 
 .userpage-container {
-  width: 60%; }
+  width: 65%; }
 
 .search-title {
   font-family: LeagueGothic, sans-serif;
@@ -447,6 +450,18 @@ li {
 
 .search-btn:hover {
   background-color: #1E401D; }
+
+.just-added-text {
+  font-family: PeleguerItalic, serif;
+  font-size: 3rem;
+  margin-top: -2rem;
+  margin-bottom: 1.5rem; }
+
+.just-added-link {
+  color: #F99E1C; }
+
+.just-added-link:hover {
+  color: #90bb5e; }
 
 .imageClass {
   height: 1vw;
@@ -835,14 +850,21 @@ li {
   .arrow {
     margin-left: 3.8vmax; } }
 @media only screen and (max-width: 1450px) {
+  /* ===============================================HOME PAGE================================================ */
+  .loginBox {
+    margin-top: -4.2rem; }
+
+  .readmore-description {
+    bottom: 13vw; }
+
+  .arrow {
+    margin-left: 11vmin; }
+
   /* ===============================================USER PAGE================================================ */
   .header-image-class {
     padding-top: 2rem;
     padding-bottom: 0rem;
-    margin-left: 13vw; }
-
-  .arrow {
-    margin-left: 4.5vmax; } }
+    margin-left: 13vw; } }
 @media only screen and (max-width: 1280px) {
   /* ===============================================HOME PAGE================================================ */
   .loginBox {
@@ -853,7 +875,7 @@ li {
     bottom: 13vw; }
 
   .arrow {
-    margin-left: 5.1vmin; }
+    margin-left: 9.3vmin; }
 
   /* ===============================================USER PAGE================================================ */
   .search-btn {
