@@ -21,7 +21,9 @@ class UserPage extends Component {
     recipe_url: "",
     search_term: "",
     showing_search_results: 0,
-    search_tag: ""
+    search_tag: "",
+    just_added_name: "",
+    just_added_id: ""
   };
 
   componentWillMount() { //componentDidMount
@@ -99,10 +101,16 @@ class UserPage extends Component {
         .then(res => {
           console.log(res);
           this.setState({
-            recipe_url: ""
+            recipe_url: "",
+            just_added_name: res.data.name,
+            just_added_id: res.data.id
           });
-          if (res.data.status)
+          this.loadRecipes();
+          //document.location.href = window.location.protocol + "//" + window.location.hostname;
+          /*
+          if(res.data.status)
             window.location.href = window.location.origin + "/recipe/" + res.data.id;
+          */
         })
         .catch(err => console.log(err));
     }
@@ -156,6 +164,13 @@ class UserPage extends Component {
               />
             </div>
           </form>
+          {this.state.just_added_id ? (<p>Just Added: 
+              <Link className="table-item" to={"/recipe/" + this.state.just_added_id}>
+                {this.state.just_added_name}
+              </Link>
+            </p>) : (
+              <span></span>
+          )}
 
           <h3 className="search-title">SEARCH RECIPES</h3>
           <form className="row">

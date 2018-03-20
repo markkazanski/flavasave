@@ -3,6 +3,7 @@ import Input from "../components/Forms/Input.js";
 import NavLogged from "../components/Nav/NavLogged.js";
 import FooterLogged from "../components/Footer/FooterLogged.js";
 import API from "../utils/API";
+import { Link } from "react-router-dom";
 
 class AddNewRecipe extends Component {
   state = {
@@ -24,7 +25,9 @@ class AddNewRecipe extends Component {
     tag1: "",
     tag2: "",
     tag3: "",
-    tag4: ""
+    tag4: "",
+    just_added_id: "",
+    just_added_name: ""
   }
 
   handleInputChange = event => {
@@ -64,9 +67,34 @@ class AddNewRecipe extends Component {
       ]
     }).then(res => {
       console.log(res);
+      this.setState({
+        recipe_name: "",
+        recipe_serving_size: "",
+        recipe: {
+        },
+        ingredient1:"",
+        ingredient2: "",
+        ingredient3: "",
+        ingredient4: "",
+        ingredient0: "",
+        instruction0:"",
+        instruction1: "",
+        instruction2: "",
+        instruction3: "",
+        instruction4: "",
+        tag0:"",
+        tag1: "",
+        tag2: "",
+        tag3: "",
+        tag4: "",
+        just_added_id: res.data.id,
+        just_added_name: res.data.name
+      });
       //document.location.href = window.location.protocol + "//" + window.location.hostname;
+      /*
       if(res.data.status)
             window.location.href = window.location.origin + "/recipe/" + res.data.id;
+      */
     })
     .catch(err => console.log(err));
 
@@ -246,6 +274,14 @@ class AddNewRecipe extends Component {
               className="btn recipe-add-button"
               type="button">SUBMIT</button>
           </form>
+
+          {this.state.just_added_id ? (<p>Just Added: 
+              <Link className="table-item" to={"/recipe/" + this.state.just_added_id}>
+                {this.state.just_added_name}
+              </Link>
+            </p>) : (
+              <span></span>
+          )}
         </div>
         <FooterLogged />
       </div>
