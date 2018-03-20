@@ -25,6 +25,7 @@ class RecipeEdit extends Component {
     console.log(this.state.recipes);
   }
 
+  //load recipes to page
   loadRecipes = () => {
     API.getRecipe(this.props.match.params.id)
       .then((res) => {
@@ -41,24 +42,28 @@ class RecipeEdit extends Component {
       .catch(err => console.log(err));
   };
 
+  //axios call to delete recipes id
   deleteRecipe = id => {
     API.deleteRecipe(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to delete ingredient by id
   deleteIngredient = id => {
     API.deleteIngredient(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to delete instruction by id
   deleteInstruction = id => {
     API.deleteInstruction(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to update recipe name in database
   updateName = id => {
     axios.put(`/api/recipes/${id}`,
       {
@@ -70,6 +75,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to update recipe serving in database
   updateServing = id => {
     axios.put(`/api/recipes/${id}`,
       {
@@ -84,6 +90,7 @@ class RecipeEdit extends Component {
       });
   };
 
+  //axios call to update recipe ingredient in database
   updateIngredient = id => {
     console.log(this.state.ingredients)
     axios.put(`/api/ingredients/${id}`,
@@ -96,6 +103,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to add new ingredient to database
   newIngredient = () => {
     axios.post(`/api/ingredients/`,
       {
@@ -111,6 +119,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //axios call to update recipe ingredient in database
   updateInstructions = id => {
     axios.put(`/api/instructions/${id}`,
       {
@@ -122,6 +131,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to add new instruction to database
   newInstruction = () => {
     axios.post(`/api/instructions/`,
       {
@@ -137,6 +147,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //set state to field input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -144,6 +155,9 @@ class RecipeEdit extends Component {
     });
   };
 
+  //find positon of input 
+  //set that input to correct position in temporary array called Instructions
+  //set entire array to state
   handleInstructionChange = (event, i) => {
     let Instructions = [...this.state.instructions]
     const { name, value } = event.target;
@@ -155,6 +169,9 @@ class RecipeEdit extends Component {
     });
   };
 
+  //find positon of input 
+  //set that input to correct position in temporary array called Ingredients
+  //set entire array to state
   handleIngredientChange = (event, i) => {
     let Ingredients = [...this.state.ingredients]
     const { name, value } = event.target;
@@ -166,6 +183,9 @@ class RecipeEdit extends Component {
     });
   };
 
+  //find positon of input 
+  //set that input to correct positon in temporary array called Tags
+  //set entire array to state
   handleTagChange = (event, i) => {
     let Tags = [...this.state.tags]
     const { name, value } = event.target;
@@ -177,6 +197,7 @@ class RecipeEdit extends Component {
     });
   };
 
+  //axios call to save tag input to state
   updateTag = id => {
     axios.put(`/api/tags/${id}`,
       {
@@ -188,12 +209,14 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to delete tag
   deleteTag = id => {
     API.deleteTag(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to create new tag
   newTag = () => {
     axios.post(`/api/tags/`,
       {
@@ -209,6 +232,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //set value of inputs to state
   handleChange = event => {
     this.setState({
       value: event.target.value
