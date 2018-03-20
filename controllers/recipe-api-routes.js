@@ -177,6 +177,7 @@ module.exports = function (app) {
                       }).then(function (dbRecipeUpdate) {
                         res.send({
                           id: responseRecipe.id,
+                          name: responseRecipe.recipe_name,
                           status: 1
                         });
                       });
@@ -262,6 +263,7 @@ module.exports = function (app) {
               }).then(newTag => 
                 res.send({
                   id: recipeId,
+                  name: newRecipe.dataValues.recipe_name,
                   status: 1
                 })
               );
