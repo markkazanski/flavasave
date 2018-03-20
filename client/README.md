@@ -43,8 +43,10 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 
 ## CONTRIBUTORS
 
-* Sade Browne
-* Jenn Chu
-* Mark Kazanski
-* Alize Nguyen
-* Nick Sladden
+* [Sade Browne](http://www.github.com/sbribrowne)
+* [Jenn Chu](http://www.github.com/jquinnie)
+* [Mark Kazanski](http://www.github.com/markkazanski)
+* [Alize Nguyen](http://www.github.com/alizenguyen)
+* [Nick Sladden](http://www.github.com/nickoliasxii)
+
+## DOWNLOADABLE CONTENT
