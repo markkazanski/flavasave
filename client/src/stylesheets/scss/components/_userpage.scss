@@ -10,7 +10,7 @@
 }
 
 .userpage-container{
-    width: 60%;
+    width: 65%;
 }
 
 .search-title {
@@ -43,6 +43,21 @@
 
 .search-btn:hover {
     background-color: $darkgreen;
+}
+
+.just-added-text {
+    font-family: $body-font-italic;
+    font-size: 3rem;
+    margin-top: -2rem;
+    margin-bottom: 1.5rem;
+}
+
+.just-added-link {
+    color: $orange;
+}
+
+.just-added-link:hover {
+    color: $green;
 }
 
 .imageClass {
