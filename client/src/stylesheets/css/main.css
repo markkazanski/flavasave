@@ -213,20 +213,24 @@ textarea {
 
 .readmore-subBlock {
   margin-left: 6rem;
+  margin-bottom: 5rem;
   -webkit-animation: slideIn 2s forwards, bounce 6s 2s infinite;
   -moz-animation: slideIn 2s forwards, bounce 6s 2s infinite;
   animation: slideIn 2s forwards, bounce 6s 2s infinite; }
 
+.readmore-subBlock-transform {
+  transform: rotate(270deg); }
+
 .readmore-text {
   font-family: Peleguer, serif;
   font-size: 3rem;
-  color: white;
-  transform: rotate(270deg); }
+  color: white; }
 
 .arrow {
-  height: 4rem;
-  margin-top: 7rem;
-  margin-left: 3.2vmax; }
+  float: left;
+  width: 4rem;
+  margin-right: 2rem;
+  margin-top: 0.4rem; }
 
 .aboutHeader {
   font-family: LeagueGothic, sans-serif;
@@ -815,13 +819,13 @@ li {
   background-color: #1E401D; }
 
 .just-added-recipe-text {
-  font-family: Peleguer, serif;
+  font-family: PeleguerItalic, serif;
   font-size: 3rem;
   margin-top: 3rem;
   margin-left: -1.3rem; }
 
 .just-added-recipe-link {
-  font-family: Peleguer, serif;
+  font-family: PeleguerItalic, serif;
   font-size: 3rem;
   margin-top: 2%;
   color: #F99E1C; }
@@ -839,11 +843,6 @@ li {
   .readmore-block {
     bottom: 4vw; }
 
-  .arrow {
-    height: 4rem;
-    margin-top: 5vw;
-    margin-left: 5.3vw; }
-
   /* ===============================================RECIPE EDIT PAGE================================================ */
   .ERSubmit {
     font-size: 3.5rem; }
@@ -857,20 +856,11 @@ li {
 @media only screen and (max-width: 1690px) {
   /* ===============================================HOME PAGE================================================ */
   .loginBox {
-    margin-top: -2.5vw; }
-
-  .arrow {
-    margin-left: 3.8vmax; } }
+    margin-top: -2.5vw; } }
 @media only screen and (max-width: 1450px) {
   /* ===============================================HOME PAGE================================================ */
   .loginBox {
     margin-top: -4.2rem; }
-
-  .readmore-description {
-    bottom: 13vw; }
-
-  .arrow {
-    margin-left: 11vmin; }
 
   /* ===============================================USER PAGE================================================ */
   .header-image-class {
@@ -882,12 +872,6 @@ li {
   .loginBox {
     padding: 2em 7em 2em 4em;
     margin-top: -3.3vw; }
-
-  .readmore-description {
-    bottom: 13vw; }
-
-  .arrow {
-    margin-left: 9.3vmin; }
 
   /* ===============================================USER PAGE================================================ */
   .search-btn {
@@ -917,11 +901,14 @@ li {
     font-size: 1.3vw; } }
 @media only screen and (max-width: 1045px) and (min-width: 992px) {
   /* ===============================================HOME PAGE================================================ */
-  .readmore-text {
-    font-size: 2.5rem; }
+  .readmore-block {
+    top: 40vw; }
 
-  .arrow {
-    margin-left: 5.1vmin; }
+  .readmore-text {
+    font-size: 2rem; }
+
+  .readmore-subBlock {
+    margin-bottom: -3rem; }
 
   /* ===============================================USER PAGE================================================ */
   .search-btn {
@@ -939,7 +926,14 @@ li {
     padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
 
   .ERInput {
-    font-size: 1.9rem; } }
+    font-size: 1.9rem; }
+
+  /* ===============================================RECIPE EDIT PAGE=============================================== */
+  .just-added-recipe-text {
+    font-size: 2rem; }
+
+  .just-added-recipe-link {
+    font-size: 2rem; } }
 @media only screen and (max-width: 980px) {
   /* ===============================================HOME PAGE================================================ */
   .loginBox {
@@ -983,11 +977,19 @@ li {
     display: none; }
 
   .input-width {
-    height: 3vw; }
+    height: 3vw;
+    font-size: 2rem; }
 
   .search-btn {
     height: 3vw;
     padding: 0.1vw 2rem 0.3vw 1.75rem; }
+
+  .just-added-text {
+    font-size: 2rem;
+    margin-top: -0.5rem; }
+
+  .showing-search-results {
+    font-size: 2rem; }
 
   .imageClass {
     height: 1.5vw;
@@ -1002,10 +1004,20 @@ li {
   .header-image-class {
     margin-left: 17vw; }
 
+  .no-results {
+    font-size: 2.5rem; }
+
   /* ===============================================RECIPE EDIT PAGE================================================ */
   .ERSubmit {
     font-size: 1.6rem;
-    padding: 0.6rem 0.75rem 0.6rem 0.75rem; } }
+    padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
+
+  /* ===============================================RECIPE EDIT PAGE=============================================== */
+  .just-added-recipe-text {
+    font-size: 2rem; }
+
+  .just-added-recipe-link {
+    font-size: 2rem; } }
 @media only screen and (max-width: 736px) {
   /* ===============================================HOME PAGE================================================ */
   .aboutHeader {
@@ -1024,9 +1036,11 @@ li {
 
   /* ===============================================USER PAGE================================================ */
   .input-width {
+    height: 4vw;
     width: 92%; }
 
   .search-btn {
+    height: 4vw;
     padding: -2vw 2rem 0.4vw 1.75rem; }
 
   .imageClass {
@@ -1068,7 +1082,6 @@ li {
   .ingredient-btns {
     margin-left: -1.4rem; }
 
-  /* ===============================================RECIPE EDIT PAGE================================================ */
   .ERInput {
     font-size: 1.5rem; }
 
@@ -1077,7 +1090,8 @@ li {
     padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
 
   .ingredient-btn {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem;
+    margin-top: 10%; } }
 @media only screen and (max-width: 480px) {
   /* ===============================================HOME PAGE================================================ */
   .homebody {
@@ -1217,6 +1231,14 @@ li {
   .ERInput {
     height: 4rem; } }
 @media only screen and (max-width: 420px) {
+  /* ===============================================USER PAGE================================================ */
+  .greeting-text {
+    margin-top: 10%;
+    font-size: 3rem; }
+
+  .search-title {
+    font-size: 2.4rem; }
+
   .up-delete-button {
     margin-left: 1rem;
     font-size: 1.25rem;
@@ -1281,6 +1303,11 @@ li {
 
   .orangeHdrTitle {
     font-size: 2rem; }
+
+  .header-image-class {
+    height: 5rem;
+    float: left;
+    padding-bottom: 0.5rem; }
 
   .tag-search-button {
     height: 1vw;
