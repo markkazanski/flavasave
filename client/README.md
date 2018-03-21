@@ -51,6 +51,10 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 
 <img src="./src/images/ModTech.png">
 
+## DOWNLOADABLE BROCHURE
+
+[<img src="./src/images/FSMenuInfo.png" width="600">](./src/images/FSMenuInfo.png)
+
 ## CONTRIBUTORS
 
 * [Sade Browne](http://www.github.com/sbribrowne)
@@ -58,5 +62,3 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 * [Mark Kazanski](http://www.github.com/markkazanski)
 * [Alize Nguyen](http://www.github.com/alizenguyen)
 * [Nick Sladden](http://www.github.com/nickoliasxii)
-
-## DOWNLOADABLE CONTENT
