@@ -1082,7 +1082,6 @@ li {
   .ingredient-btns {
     margin-left: -1.4rem; }
 
-  /* ===============================================RECIPE EDIT PAGE================================================ */
   .ERInput {
     font-size: 1.5rem; }
 
@@ -1091,7 +1090,8 @@ li {
     padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
 
   .ingredient-btn {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem;
+    margin-top: 10%; } }
 @media only screen and (max-width: 480px) {
   /* ===============================================HOME PAGE================================================ */
   .homebody {
