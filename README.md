@@ -1,4 +1,4 @@
-[![alt FSlogo](/client/src/images/logo_green.png)](http://www.flavasave.com)
+[![alt FSlogo](./client/src/images/logo_green.png)](http://www.flavasave.com)
 
 ## _Your One-Stop Recipe Library_
 
@@ -27,7 +27,17 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 5.  Explore the features available (create, edit, delete, search, tag)
 6.  Become the fanciest organized chef you were always destined to be!
 
-# WORKING DEMO
+# APP DEMONSTRATION
+
+**STORE:** Store your recipes<br>
+<img src="./client/src/images/FSStore.gif" width="600">
+<br>
+
+**EDIT:** Edit your recipes<br>
+<img src="./client/src/images/FSEdit.gif" width="600">
+
+**ORGANIZE:** Organize your recipes<br>
+<img src="./client/src/images/FSOrganize.gif" width="600">
 
 # ADDITIONAL INFORMATION
 
@@ -41,10 +51,14 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 
 <img src="./client/src/images/ModTech.png">
 
+## DOWNLOADABLE BROCHURE
+
+[<img src="./client/src/images/FSMenuInfo.png" width="600">](./client/src/images/FSMenuInfo.png)
+
 ## CONTRIBUTORS
 
-* Sade Browne
-* Jenn Chu
-* Mark Kazanski
-* Alize Nguyen
-* Nick Sladden
+* [Sade Browne](http://www.github.com/sbribrowne)
+* [Jenn Chu](http://www.github.com/jquinnie)
+* [Mark Kazanski](http://www.github.com/markkazanski)
+* [Alize Nguyen](http://www.github.com/alizenguyen)
+* [Nick Sladden](http://www.github.com/nickoliasxii)
