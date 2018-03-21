@@ -5,15 +5,12 @@
         border-radius: 0;
         height: 15rem;
     }
-
     .readmore-description {
         bottom: 4vw;
     }
-
     .readmore-block {
         bottom: 4vw;
     }
-
     .arrow {
         height: 4rem;
         margin-top: 5vw;
@@ -23,11 +20,9 @@
     .ERSubmit {
         font-size: 3.5rem;
     }
-
     .ERTitle {
         font-size: 5rem;
     }
-
     .ERInput {
         height: 6.2rem;
         font-size: 3.2rem;
@@ -39,9 +34,22 @@
     .loginBox {
         margin-top: -2.5vw;
     }
+    .arrow {
+        margin-left: 3.8vmax;
+    }
 }
 
 @media only screen and (max-width: 1450px) {
+    /* ===============================================HOME PAGE================================================ */
+    .loginBox {
+        margin-top: -4.2rem;
+    }
+    .readmore-description {
+        bottom: 13vw;
+    }
+    .arrow {
+        margin-left: 11vmin;
+    }
     /* ===============================================USER PAGE================================================ */
     .header-image-class {
         padding-top: 2rem;
@@ -60,8 +68,7 @@
         bottom: 13vw;
     }
     .arrow {
-        margin-top: 7vw;
-        margin-left: 8vw;
+        margin-left: 9.3vmin;
     }
     /* ===============================================USER PAGE================================================ */
     .search-btn {
@@ -81,24 +88,32 @@
         padding: 0.5rem 1rem 0 1rem;
     }
     .up-toggle-button {
-        padding: 0.5rem 1rem 0 1rem;
+        padding: 1rem 2rem 0.7rem 2rem;
     }
     /* ===============================================RECIPE EDIT PAGE================================================ */
     .ERSubmit {
         font-size: 2rem;
     }
-
     .ingredient-btn {
         font-size: 1.3vw;
     }
 }
 
 @media only screen and (max-width: 1045px) and (min-width: 992px) {
-     /* ===============================================USER PAGE================================================ */
+    /* ===============================================HOME PAGE================================================ */
+    .readmore-text {
+        font-size: 2.5rem;
+    }
+    .arrow {
+        margin-left: 5.1vmin;
+    }
+    /* ===============================================USER PAGE================================================ */
+    .search-btn {
+        height: 2.5vw;
+    }
     .up-delete-button {
         margin-left: 1rem;
     }
-
     .up-toggle-button {
         margin-left: 1rem;
     }
@@ -107,7 +122,6 @@
         font-size: 1.75rem;
         padding: 0.6rem 0.75rem 0.6rem 0.75rem;
     }
-
     .ERInput {
         font-size: 1.9rem;
     }
@@ -248,12 +262,10 @@
     .ERInput {
         font-size: 1.5rem;
     }
-    
     .ERSubmit {
         font-size: 1.5rem;
         padding: 0.6rem 0.75rem 0.6rem 0.75rem;
     }
-
     .ingredient-btn {
         font-size: 1.5rem;
     }
@@ -397,6 +409,24 @@
     /* ===============================================RECIPE EDIT PAGE================================================ */
     .ERInput {
         height: 4rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .up-delete-button {
+        margin-left: 1rem;
+        font-size: 1.25rem;
+        padding: 1rem 1rem 0.6rem 1rem;
+    }
+    .up-toggle-button {
+        margin-left: 1rem;
+        font-size: 1.25rem;
+    }
+    .glyphicon-pencil {
+        font-size: 1.25rem;
+    }
+    .glyphicon-trash {
+        font-size: 1.25rem;
     }
 }
 

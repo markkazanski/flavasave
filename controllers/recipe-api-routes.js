@@ -143,6 +143,8 @@ module.exports = function (app) {
                 })
                 .then(function (responseIngredient) {
                   var instructionsArrayTemp = parseItempropInstructions($, recipeId);
+                  console.log("****instructionsArrayTemp***");
+                  console.log(instructionsArrayTemp);
                   if (!instructionsArrayTemp.length) { //check if no instructions
                     instructionsArrayTemp[0] = {
                       instruction_info: "No Instructions Detected",
@@ -175,6 +177,7 @@ module.exports = function (app) {
                       }).then(function (dbRecipeUpdate) {
                         res.send({
                           id: responseRecipe.id,
+                          name: responseRecipe.recipe_name,
                           status: 1
                         });
                       });
@@ -260,6 +263,7 @@ module.exports = function (app) {
               }).then(newTag => 
                 res.send({
                   id: recipeId,
+                  name: newRecipe.dataValues.recipe_name,
                   status: 1
                 })
               );
@@ -400,7 +404,11 @@ function parseItempropInstructions($, recipeId) {
         if (JSON.parse($(this).html())["recipeInstructions"]) {
           //console.log("*********************** if (JSON.parse($(this).html())[recipeInstructions])*******************");
           //console.log(JSON.parse($(this).html())["recipeInstructions"]);
-          instructionArrayClean = JSON.parse($(this).html())["recipeInstructions"];
+          if(typeof JSON.parse($(this).html())["recipeInstructions"] === "string")
+            instructionArrayClean[0] = JSON.parse($(this).html())["recipeInstructions"];
+          else  
+            instructionArrayClean = JSON.parse($(this).html())["recipeInstructions"];
+          
           jsonFound = true;
           //console.log(instructionArrayClean);
         } //else

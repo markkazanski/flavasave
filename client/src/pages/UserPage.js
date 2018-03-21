@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import NavLogged from "../components/Nav/NavLogged";
 import Input from "../components/Forms/Input.js";
 import FormBtn from "../components/Buttons/FormBtn.js";
+import Buttons from "../components/Buttons/Button.js";
 import OrangeHdr from "../components/Panels/OrangeHdr.js";
 import NeedToCookList from "../components/Lists/NeedToCookList";
 import NTCListItem from "../components/Lists/NTCListItem";
@@ -9,8 +11,6 @@ import CompleteList from "../components/Lists/CompleteList";
 import CompleteListItem from "../components/Lists/CompleteListItem";
 import FooterLogged from "../components/Footer/FooterLogged.js";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
-import Buttons from "../components/Buttons/Button.js";
 import axios from "axios";
 
 class UserPage extends Component {
@@ -21,14 +21,16 @@ class UserPage extends Component {
     recipe_url: "",
     search_term: "",
     showing_search_results: 0,
-    search_tag: ""
+    search_tag: "",
+    just_added_name: "",
+    just_added_id: ""
   };
 
   componentWillMount() { //componentDidMount
     this.currentUser();
-    //currentUsers loads this.loadRecipes() if user found
   }
 
+  //grab user information
   currentUser = () => {
     API.getUserData()
       .then(res => {
@@ -43,6 +45,7 @@ class UserPage extends Component {
       .catch(err => console.log(err));
   };
 
+  //load recipes on page
   loadRecipes = () => {
     API.getRecipes()
       .then(res => {
@@ -51,12 +54,14 @@ class UserPage extends Component {
       .catch(err => console.log(err));
   };
 
+  //axios call to delete recipe in db
   deleteRecipe = id => {
     API.deleteRecipe(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //changes recipe_checkbox field in db to true
   makeTrue = id => {
     axios
       .put(`/api/recipes/${id}`, {
@@ -65,17 +70,9 @@ class UserPage extends Component {
         }
       })
       .then(res => this.loadRecipes());
-
-    /*
-    API.updateRecipe(id, {
-      recipe_checkbox: 1
-    })
-      .then(res => this.loadRecipes())
-      .catch(err => console.log(err));
-
-      */
   };
 
+  //changes recipe_checkbox field in db to false
   makeFalse = id => {
     axios
       .put(`/api/recipes/${id}`, {
@@ -86,6 +83,7 @@ class UserPage extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //happens on submit of input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -93,10 +91,7 @@ class UserPage extends Component {
     });
   };
 
-  loadApp1() {
-    this.props.history.push('/recipe/');
-  }
-
+  //axios call and redirect on submit of recipe url
   handleURLSubmit = event => {
     event.preventDefault();
     if (this.state.recipe_url) {
@@ -106,11 +101,16 @@ class UserPage extends Component {
         .then(res => {
           console.log(res);
           this.setState({
-            recipe_url: ""
+            recipe_url: "",
+            just_added_name: res.data.name,
+            just_added_id: res.data.id
           });
+          this.loadRecipes();
           //document.location.href = window.location.protocol + "//" + window.location.hostname;
+          /*
           if(res.data.status)
             window.location.href = window.location.origin + "/recipe/" + res.data.id;
+          */
         })
         .catch(err => console.log(err));
     }
@@ -120,6 +120,7 @@ class UserPage extends Component {
     });
   };
 
+  //axios call to db on submit of search / set state to results
   handleSearch = event => {
     event.preventDefault();
     axios.get(`/api/search/${this.state.search_term}`)
@@ -129,6 +130,7 @@ class UserPage extends Component {
       });
   };
 
+  //axios call to db on submit of search / set state to results
   handleTagSearch = event => {
     event.preventDefault();
     axios.get(`/api/tags/search/${this.state.search_tag}`)
@@ -162,11 +164,18 @@ class UserPage extends Component {
               />
             </div>
           </form>
+          {this.state.just_added_id ? (<p className="just-added-text">Just Added: {" "} 
+              <Link className="just-added-link" to={"/recipe/" + this.state.just_added_id}>
+                {this.state.just_added_name}
+              </Link>
+            </p>) : (
+              <span></span>
+          )}
 
           <h3 className="search-title">SEARCH RECIPES</h3>
           <form className="row">
             <div className="form-group">
-              <Input name="search-recipe" className="input-width"
+              <Input className="input-width"
                 value={this.state.search_term}
                 onChange={this.handleInputChange}
                 name="search_term"
@@ -183,7 +192,7 @@ class UserPage extends Component {
           <h3 className="search-title">SEARCH BY TAGS</h3>
           <form className="row">
             <div className="form-group">
-              <Input name="search-tags" className="input-width"
+              <Input className="input-width"
                 value={this.state.search_tag}
                 onChange={this.handleInputChange}
                 name="search_tag"
@@ -201,7 +210,7 @@ class UserPage extends Component {
         {this.state.showing_search_results ?
           (<div id="searchresults" className="container-fluid userpage-container showing-search-results">
             Search results for: {this.state.search_term ? (this.state.search_term) : (this.state.search_tag)}
-            <a href="#" onClick={this.loadRecipes}> Clear</a>
+            <a href="#" className = "clear-search" onClick={this.loadRecipes}> Clear</a>
           </div>) :
           (<span></span>)
         }
@@ -221,7 +230,7 @@ class UserPage extends Component {
                 recipe =>
                   !recipe.recipe_checkbox ? (
                     <NTCListItem key={recipe.id}>
-                      <div className="col-md-8 table-item recipe-name">
+                      <div className="col-md-7 table-item recipe-name">
                         <Link
                           className="table-item"
                           to={"/recipe/" + recipe.id}
@@ -229,13 +238,12 @@ class UserPage extends Component {
                           {recipe.recipe_name}
                         </Link>
                       </div>
-                      <div className="col-md-4 recipe-buttons">
+                      <div className="col-md-5 recipe-buttons">
                         <Link
                           className="btn btn-sm up-edit-button"
                           to={"/recipeedit/" + recipe.id}
                         >
-                          {" "}
-                          Edit{" "}
+                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </Link>
                         <Buttons onClick={() => this.deleteRecipe(recipe.id)} />
                         <button
@@ -271,7 +279,7 @@ class UserPage extends Component {
                 recipe =>
                   recipe.recipe_checkbox ? (
                     <CompleteListItem key={recipe.id}>
-                      <div className="col-md-8 table-item recipe-name">
+                      <div className="col-md-7 table-item recipe-name">
                         <Link
                           className="table-item"
                           to={"/recipe/" + recipe.id}
@@ -279,13 +287,12 @@ class UserPage extends Component {
                           {recipe.recipe_name}
                         </Link>
                       </div>
-                      <div className="col-md-4 recipe-buttons">
+                      <div className="col-md-5 recipe-buttons">
                         <Link
                           className="btn btn-sm up-edit-button"
                           to={"/recipeedit/" + recipe.id}
                         >
-                          {" "}
-                          Edit{" "}
+                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </Link>
                         <Buttons onClick={() => this.deleteRecipe(recipe.id)} />
                         <button

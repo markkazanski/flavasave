@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Input from "../components/Forms/Input.js";
 import NavLogged from "../components/Nav/NavLogged.js";
 import FooterLogged from "../components/Footer/FooterLogged.js";
 import API from "../utils/API";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class RecipeEdit extends Component {
   state = {
@@ -18,7 +18,6 @@ class RecipeEdit extends Component {
     new_ingredient: "",
     new_instruction: "",
     new_tag: ""
-    //tags: []
   };
 
   componentDidMount() {
@@ -26,6 +25,7 @@ class RecipeEdit extends Component {
     console.log(this.state.recipes);
   }
 
+  //load recipes to page
   loadRecipes = () => {
     API.getRecipe(this.props.match.params.id)
       .then((res) => {
@@ -37,33 +37,33 @@ class RecipeEdit extends Component {
           ingredients: res.data.Ingredients,
           instructions: res.data.Instructions,
           tags: res.data.Tags
-          //tags: res.data.tags
         })
-        console.log(res);
-        console.log(res.data.Tags);
-        console.log(this.state.recipes);
       })
       .catch(err => console.log(err));
   };
 
+  //axios call to delete recipes id
   deleteRecipe = id => {
     API.deleteRecipe(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to delete ingredient by id
   deleteIngredient = id => {
     API.deleteIngredient(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to delete instruction by id
   deleteInstruction = id => {
     API.deleteInstruction(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to update recipe name in database
   updateName = id => {
     axios.put(`/api/recipes/${id}`,
       {
@@ -75,6 +75,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to update recipe serving in database
   updateServing = id => {
     axios.put(`/api/recipes/${id}`,
       {
@@ -89,6 +90,7 @@ class RecipeEdit extends Component {
       });
   };
 
+  //axios call to update recipe ingredient in database
   updateIngredient = id => {
     console.log(this.state.ingredients)
     axios.put(`/api/ingredients/${id}`,
@@ -101,6 +103,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to add new ingredient to database
   newIngredient = () => {
     axios.post(`/api/ingredients/`,
       {
@@ -116,6 +119,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //axios call to update recipe ingredient in database
   updateInstructions = id => {
     axios.put(`/api/instructions/${id}`,
       {
@@ -127,6 +131,7 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to add new instruction to database
   newInstruction = () => {
     axios.post(`/api/instructions/`,
       {
@@ -142,6 +147,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //set state to field input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -149,6 +155,9 @@ class RecipeEdit extends Component {
     });
   };
 
+  //find positon of input 
+  //set that input to correct position in temporary array called Instructions
+  //set entire array to state
   handleInstructionChange = (event, i) => {
     let Instructions = [...this.state.instructions]
     const { name, value } = event.target;
@@ -160,34 +169,36 @@ class RecipeEdit extends Component {
     });
   };
 
+  //find positon of input 
+  //set that input to correct position in temporary array called Ingredients
+  //set entire array to state
   handleIngredientChange = (event, i) => {
     let Ingredients = [...this.state.ingredients]
     const { name, value } = event.target;
     Ingredients[i].ingredient_info = value;
-    console.log(value)
     //find where we are working in array (find index of what's changing)
 
     this.setState({
       ingredients: Ingredients
     });
-    console.log(this.state.ingredients)
   };
 
+  //find positon of input 
+  //set that input to correct positon in temporary array called Tags
+  //set entire array to state
   handleTagChange = (event, i) => {
     let Tags = [...this.state.tags]
     const { name, value } = event.target;
     Tags[i].tag_name = value;
-    console.log(value)
     //find where we are working in array (find index of what's changing)
 
     this.setState({
       tags: Tags
     });
-    console.log(this.state.tags)
   };
 
+  //axios call to save tag input to state
   updateTag = id => {
-    console.log(this.state.tags)
     axios.put(`/api/tags/${id}`,
       {
         tagObj: {
@@ -198,12 +209,14 @@ class RecipeEdit extends Component {
       .then(res => this.loadRecipes());
   };
 
+  //axios call to delete tag
   deleteTag = id => {
     API.deleteTag(id)
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
 
+  //axios call to create new tag
   newTag = () => {
     axios.post(`/api/tags/`,
       {
@@ -219,6 +232,7 @@ class RecipeEdit extends Component {
       }))
   };
 
+  //set value of inputs to state
   handleChange = event => {
     this.setState({
       value: event.target.value
@@ -405,7 +419,7 @@ class RecipeEdit extends Component {
               <h3 className="noshow" />
             )}
 
-          <h3 className="ERTitle">ADD NEW TAG</h3>
+          <h3 className="ERTitle ERAdd">ADD NEW TAG</h3>
           <div className="row">
             <div className="recipe-page-col col-sm-11">
               <Input
