@@ -11,11 +11,6 @@
     .readmore-block {
         bottom: 4vw;
     }
-    .arrow {
-        height: 4rem;
-        margin-top: 5vw;
-        margin-left: 5.3vw;
-    }
     /* ===============================================RECIPE EDIT PAGE================================================ */
     .ERSubmit {
         font-size: 3.5rem;
@@ -34,21 +29,12 @@
     .loginBox {
         margin-top: -2.5vw;
     }
-    .arrow {
-        margin-left: 3.8vmax;
-    }
 }
 
 @media only screen and (max-width: 1450px) {
     /* ===============================================HOME PAGE================================================ */
     .loginBox {
         margin-top: -4.2rem;
-    }
-    .readmore-description {
-        bottom: 13vw;
-    }
-    .arrow {
-        margin-left: 11vmin;
     }
     /* ===============================================USER PAGE================================================ */
     .header-image-class {
@@ -63,12 +49,6 @@
     .loginBox {
         padding: 2em 7em 2em 4em;
         margin-top: -3.3vw;
-    }
-    .readmore-description {
-        bottom: 13vw;
-    }
-    .arrow {
-        margin-left: 9.3vmin;
     }
     /* ===============================================USER PAGE================================================ */
     .search-btn {
@@ -101,11 +81,16 @@
 
 @media only screen and (max-width: 1045px) and (min-width: 992px) {
     /* ===============================================HOME PAGE================================================ */
-    .readmore-text {
-        font-size: 2.5rem;
+    .readmore-block {
+        top: 40vw;
     }
-    .arrow {
-        margin-left: 5.1vmin;
+    
+    .readmore-text {
+        font-size: 2rem;
+    }
+
+    .readmore-subBlock {
+        margin-bottom: -3rem;
     }
     /* ===============================================USER PAGE================================================ */
     .search-btn {
