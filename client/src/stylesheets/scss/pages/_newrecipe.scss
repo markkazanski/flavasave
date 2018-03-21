@@ -14,3 +14,17 @@
 .recipe-add-button:hover {
     background-color: $darkgreen;
 }
+
+.just-added-recipe-text {
+    font-family: $body-font;
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-left: -1.3rem;
+}
+
+.just-added-recipe-link {
+    font-family: $body-font;
+    font-size: 3rem;
+    margin-top: 2%;
+    color: $orange;
+}
