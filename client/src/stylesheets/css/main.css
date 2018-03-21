@@ -814,6 +814,18 @@ li {
 .recipe-add-button:hover {
   background-color: #1E401D; }
 
+.just-added-recipe-text {
+  font-family: Peleguer, serif;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-left: -1.3rem; }
+
+.just-added-recipe-link {
+  font-family: Peleguer, serif;
+  font-size: 3rem;
+  margin-top: 2%;
+  color: #F99E1C; }
+
 @media only screen and (max-width: 3590px) and (min-width: 2400px) {
   /* ===============================================HOME PAGE================================================ */
   .navbar {

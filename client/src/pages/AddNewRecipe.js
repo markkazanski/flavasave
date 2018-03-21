@@ -275,8 +275,8 @@ class AddNewRecipe extends Component {
               type="button">SUBMIT</button>
           </form>
 
-          {this.state.just_added_id ? (<p>Just Added: 
-              <Link className="table-item" to={"/recipe/" + this.state.just_added_id}>
+          {this.state.just_added_id ? (<p className="just-added-recipe-text">Just Added: {" "}
+              <Link className="just-added-recipe-link" to={"/recipe/" + this.state.just_added_id}>
                 {this.state.just_added_name}
               </Link>
             </p>) : (
