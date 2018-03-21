@@ -27,7 +27,17 @@ Edit each recipe quickly and easily while checking off the ingredients you have 
 5.  Explore the features available (create, edit, delete, search, tag)
 6.  Become the fanciest organized chef you were always destined to be!
 
-# WORKING DEMO
+# APP DEMONSTRATION
+
+**STORE:** Store your recipes<br>
+<img src="./src/images/FSStore.gif" width="600">
+<br>
+
+**EDIT:** Edit your recipes<br>
+<img src="./src/images/FSEdit.gif" width="600">
+
+**ORGANIZE:** Organize your recipes<br>
+<img src="./src/images/FSOrganize.gif" width="600">
 
 # ADDITIONAL INFORMATION
 
