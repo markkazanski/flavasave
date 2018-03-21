@@ -819,13 +819,13 @@ li {
   background-color: #1E401D; }
 
 .just-added-recipe-text {
-  font-family: Peleguer, serif;
+  font-family: PeleguerItalic, serif;
   font-size: 3rem;
   margin-top: 3rem;
   margin-left: -1.3rem; }
 
 .just-added-recipe-link {
-  font-family: Peleguer, serif;
+  font-family: PeleguerItalic, serif;
   font-size: 3rem;
   margin-top: 2%;
   color: #F99E1C; }
@@ -926,7 +926,14 @@ li {
     padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
 
   .ERInput {
-    font-size: 1.9rem; } }
+    font-size: 1.9rem; }
+
+  /* ===============================================RECIPE EDIT PAGE=============================================== */
+  .just-added-recipe-text {
+    font-size: 2rem; }
+
+  .just-added-recipe-link {
+    font-size: 2rem; } }
 @media only screen and (max-width: 980px) {
   /* ===============================================HOME PAGE================================================ */
   .loginBox {
@@ -1003,7 +1010,14 @@ li {
   /* ===============================================RECIPE EDIT PAGE================================================ */
   .ERSubmit {
     font-size: 1.6rem;
-    padding: 0.6rem 0.75rem 0.6rem 0.75rem; } }
+    padding: 0.6rem 0.75rem 0.6rem 0.75rem; }
+
+  /* ===============================================RECIPE EDIT PAGE=============================================== */
+  .just-added-recipe-text {
+    font-size: 2rem; }
+
+  .just-added-recipe-link {
+    font-size: 2rem; } }
 @media only screen and (max-width: 736px) {
   /* ===============================================HOME PAGE================================================ */
   .aboutHeader {
